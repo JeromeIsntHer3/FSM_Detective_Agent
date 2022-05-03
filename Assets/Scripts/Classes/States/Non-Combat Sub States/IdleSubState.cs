@@ -14,23 +14,23 @@ public class IdleSubState : NonCombat
     }
     public override void UpdateState() 
     {
-        if (CheckPlayerNearby() && metUp == false)
+        if (CheckPlayerNearby() && !metUp)
         {
-            Debug.Log("DETECTIVE_IDLE: 'Ah, there you are! Come on follow me and let's see what you can learn.'");
+            Debug.Log("DETECTIVE_NON_COMBAT_IDLE_STATE: 'Ah, there you are! Come on follow me and let's see what you can learn.'");
             fsm.ChangeState(fsm.exploreState);
         }
-        else if (metUp == false)
+        else if (!metUp)
         {
-            Debug.Log("DETECTIVE_IDLE: 'Where is the rookie?'");
+            Debug.Log("DETECTIVE_NON_COMBAT_IDLE_STATE: 'Where is the rookie?'");
         }
-        if(CheckPlayerNearby() && metUp == true)
+        if(CheckPlayerNearby() && metUp)
         {
-            Debug.Log("DETECTIVE_IDLE: 'Where did you go? Nevermind, let's just continue with the investigation.'");
+            Debug.Log("DETECTIVE_NON_COMBAT_IDLE_STATE: 'Where did you go? Nevermind, let's just continue with the investigation.'");
             fsm.ChangeState(fsm.exploreState);
         }
-        if (RandomAttack() && metUp == true)
+        if (RandomAttack() && metUp)
         {
-            Debug.Log("Surprise Attack");
+            Debug.Log("DETECTIVE_NON_COMBAT_IDLE_STATE: Surprise Attack");
             fsm.ChangeState(fsm.coverState);
         }
     }

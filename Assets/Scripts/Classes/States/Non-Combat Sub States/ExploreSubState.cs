@@ -34,7 +34,7 @@ public class ExploreSubState : NonCombat
         }
         if (RandomAttack())
         {
-            Debug.Log("Surprise Attack");
+            Debug.Log("DETECTIVE_NON_COMBAT_EXPLORE_STATE: Surprise Attack");
             fsm.ChangeState(fsm.coverState);
         }
     }
@@ -64,7 +64,7 @@ public class ExploreSubState : NonCombat
     {
         if (cluesFound >= totalClues)
         {
-            Debug.Log("DETECTIVE_NON_COMBAT_ANALYSIS_STATE: 'Welp, that should be all the clues let's get back to the van and consolidate what we found.'");
+            Debug.Log("DETECTIVE_NON_COMBAT_EXPLORE_STATE: 'Welp, that should be all the clues let's get back to the van and consolidate what we found.'");
             fsm.ChangeState(fsm.analysisState);
         }
     }

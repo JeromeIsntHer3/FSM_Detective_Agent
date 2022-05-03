@@ -27,10 +27,10 @@ public class FSM : MonoBehaviour
         idleState = new IdleSubState(this);
 
         //Combat States
-        attackState = new AttackSubState();
+        attackState = new AttackSubState(this);
         coverState = new CoverSubState(this);
-        injuredState = new InjuredSubState();
-        moveState = new MoveSubState();
+        injuredState = new InjuredSubState(this);
+        moveState = new MoveSubState(this);
 
         //Investigation State
         overState = new InvestigationOver(this);

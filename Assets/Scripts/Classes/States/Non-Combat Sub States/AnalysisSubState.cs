@@ -10,16 +10,17 @@ public class AnalysisSubState : NonCombat
     }
     public override void EnterState() {
         Debug.Log("Entered Analysis State");
-        Debug.Log("DETECTIVE_NON_COMBAT_CLUE_STATE: 'So, what do you think happened?'");
-        Debug.Log("Press 1 for 'Murder'");
-        Debug.Log("Press 2 for 'Suicide'");
-        Debug.Log("Press 3 for 'Coincidental Assault'");
+        //have the detective ask the player what they think 
+        Debug.Log("DETECTIVE_NON_COMBAT_ANALYSIS_STATE: 'So, what do you think happened?'");
+        Debug.Log("DETECTIVE_NON_COMBAT_ANALYSIS_STATE: Press 1 for 'Murder'");
+        Debug.Log("DETECTIVE_NON_COMBAT_ANALYSIS_STATE: Press 2 for 'Suicide'");
+        Debug.Log("DETECTIVE_NON_COMBAT_ANALYSIS_STATE: Press 3 for 'Coincidental Assault'");
     }
     public override void UpdateState() {
         AnalyseClues();
+        //check if the attack happens during the analysis state
         if (RandomAttack())
         {
-            Debug.Log("Surprise Attack");
             fsm.ChangeState(fsm.coverState);
         }
     }
@@ -27,11 +28,12 @@ public class AnalysisSubState : NonCombat
         Debug.Log("Exiting Analysis State");
     }
 
+    //pseudo way to let the player react to being asked
     void AnalyseClues()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("Hmm, well that seem about right. I'll look more into. Thanks for your help.");
+            Debug.Log("DETECTIVE_NON_COMBAT_ANALYSIS_STATE: 'Hmm, well that seem about right. I'll look more into. Thanks for your help.'");
             fsm.ChangeState(fsm.overState);
         }
     }

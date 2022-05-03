@@ -17,10 +17,11 @@ public class ClueSubState : NonCombat
     }
     public override void UpdateState() {
         NotingClue();
+        //check if the attack happens during the Clue state
         if (RandomAttack())
         {
-            Debug.Log("Surprise Attack");
-            fsm.ChangeState(fsm.attackState);
+            Debug.Log("DETECTIVE_NON_COMBAT_CLUE_STATE: Surprise Attack");
+            fsm.ChangeState(fsm.coverState);
         }
     }
     public override void Exit() {
@@ -46,7 +47,7 @@ public class ClueSubState : NonCombat
         if (currNoteTime <= 0)
         {
             Debug.Log("DETECTIVE_NON_COMBAT_CLUE_STATE: 'Alright, got it. Let's move on.'");
-            fsm.ChangeState(fsm.coverState);
+            fsm.ChangeState(fsm.exploreState);
         }
         Debug.Log(cluesFound);
     }

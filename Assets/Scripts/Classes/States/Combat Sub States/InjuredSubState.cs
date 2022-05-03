@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class InjuredSubState : Combat
 {
-    public override void EnterState() { }
+    public InjuredSubState(FSM _fsm)
+    {
+        fsm = _fsm;
+    }
+    public override void EnterState() {
+        Debug.Log("Entered Injured State");
+    }
     public override void UpdateState() { }
     public override void Exit() { }
 }
