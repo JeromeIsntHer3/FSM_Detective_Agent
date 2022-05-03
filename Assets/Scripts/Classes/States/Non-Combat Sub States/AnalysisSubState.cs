@@ -33,7 +33,6 @@ public class AnalysisSubState : NonCombat
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("DETECTIVE_NON_COMBAT_ANALYSIS_STATE: 'Hmm, well that seem about right. I'll look more into. Thanks for your help.'");
             fsm.ChangeState(fsm.overState);
         }
     }

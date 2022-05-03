@@ -7,6 +7,7 @@ using UnityEngine;
 
 public abstract class BaseState
 {
+    public static bool combatOccur;
     public bool combat = false;
     protected FSM fsm;
     public virtual void EnterState() { }

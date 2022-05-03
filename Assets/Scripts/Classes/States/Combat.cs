@@ -4,7 +4,10 @@ using UnityEngine;
 
 public abstract class Combat : BaseState
 {
-    public int enemies = 5;
-    public bool combatStart = false;
-    public bool attacking;
+    public static int distFromEnemy = 10;
+    public static int enemyRange = 2;
+    public static int enemyCount = 10;
+    public static bool combatStart = false;
+    public static bool enemyAttacking;
+    public static bool healed = false;
 }
