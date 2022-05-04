@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The Analysis State is pseudo way for the player to decide
+//what the clues would result in and is mainly as a buffer between states
+
 public class AnalysisSubState : NonCombat
 {
     public AnalysisSubState(FSM _fsm)

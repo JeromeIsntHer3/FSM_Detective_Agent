@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The Over State act as the "Ending" state
+
 public class InvestigationOver : BaseState
 {
     public InvestigationOver(FSM _fsm)
@@ -14,6 +16,7 @@ public class InvestigationOver : BaseState
     }
     public override void UpdateState()
     {
+        //if combat has occured give a different line of dialogue
         if (combatOccur)
         {
             Debug.Log("DETECTIVE_INVESTIGATION_OVER_STATE: 'Welp, that was something alright!' Thanks for your help, go home and get rested!");

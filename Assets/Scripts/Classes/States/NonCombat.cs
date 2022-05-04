@@ -25,7 +25,7 @@ public abstract class NonCombat : BaseState
     //check if the player and detective have already met up
     public static bool metUp = false;
 
-    //the surprise attack by the bad guys
+    //Have the surprise from the bad guys be run be key press 
     public static bool RandomAttack()
     {
         //if (Random.Range(0, 100) >= 99)

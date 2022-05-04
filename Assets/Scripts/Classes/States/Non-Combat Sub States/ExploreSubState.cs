@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The Explore State allow the detective to search for clues
+
 public class ExploreSubState : NonCombat
 {
     public ExploreSubState(FSM _fsm)
@@ -59,7 +61,7 @@ public class ExploreSubState : NonCombat
         return Input.GetKeyDown(KeyCode.W);
     }
 
-    //runs when all clues have been found
+    //When all clues have been found, transition to analysis state
     void AllCluesFound()
     {
         if (cluesFound >= totalClues)

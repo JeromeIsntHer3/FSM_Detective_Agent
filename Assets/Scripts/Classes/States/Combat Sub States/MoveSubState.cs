@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The Move State is to act as a way for the detective to
+//move from cover to cover to get closer to the enemies
+//everytime they stop attacking
+
 public class MoveSubState : Combat
 {
     public MoveSubState(FSM _fsm)
@@ -35,7 +39,8 @@ public class MoveSubState : Combat
         Debug.Log("Exiting Move State");
     }
 
-    //have the enemy attack the detective 
+    //Set the enemy to attack so that the detective will take cover
+    //during this period and will transition to the cover state
     void EnemyAttacking()
     {
         if (Input.GetKeyDown(KeyCode.X))

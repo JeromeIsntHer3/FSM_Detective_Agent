@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The Cover State is to act as a form of "cover in combat"
+//while the detective is moving closer to the enemies to engage them
+
 public class CoverSubState : Combat
 {
     public CoverSubState(FSM _fsm)
@@ -10,9 +13,10 @@ public class CoverSubState : Combat
     }
     public override void EnterState() {
         Debug.Log("Entered Cover State");
-
+        //set combatOccur to true to have different endings in the Over State
         combatOccur = true;
         //make sure combat has yet to start then set it and enemy attacking to true
+        //so that this dialogue won't show up again
         if (!combatStart)
         {
             Debug.Log("DETECTIVE_COMBAT_COVER_STATE: 'Damn, I guess they came back to finish what they started.'");
@@ -31,6 +35,8 @@ public class CoverSubState : Combat
     public override void UpdateState() {
         EnemyStopAttacking();
         AttackBack();
+        //check to see if the enemy is attack to see if the detective can move 
+        //forward to the next cover or not
         if (enemyAttacking)
         {
             Debug.Log("DETECTIVE_COMBAT_COVER_STATE: 'Get down! Wait until they stop shooting!");
@@ -55,7 +61,8 @@ public class CoverSubState : Combat
         }
     }
 
-    //to allow the detective to transition into the attack state
+    //Once the detective has made it close enough to the enemies
+    //pressing z will transition to the Attack state to fight back
     void AttackBack()
     {
         if(distFromEnemy <= enemyRange)

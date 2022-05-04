@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The Clue State is used as a way to have the detective collect
+//clues and keep track of the clues
+
 public class ClueSubState : NonCombat
 {
     public ClueSubState(FSM _fsm)
